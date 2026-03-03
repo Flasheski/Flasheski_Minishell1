@@ -86,12 +86,13 @@ malloc, free, exit, opendir, readdir, closedir, getcwd, chdir, fork, stat, lstat
 Une organisation modulaire est recommandée pour gérer le cycle de vie du Shell et une meilleure compréhension.
 
 ```bash
+├── abort.c -> programme à compiler qui donne le binaire "crash_abort" pour tester le crash "Abort (core dumped)
 ├── bonus
 │   └── display_bonus.c
-├── crash_abort
-├── crash_div
-├── crash_seg
-├── div_zero.c
+├── crash_abort -> binaire abort
+├── crash_div -> binaire div_zero
+├── crash_seg -> binaire segmentation fault
+├── div_zero.c -> programme à compiler qui donne le binaire "crash_div" pour tester le crash "Floating point (core dumped)"
 ├── env.txt
 ├── include
 │   ├── my.h
@@ -101,7 +102,7 @@ Une organisation modulaire est recommandée pour gérer le cycle de vie du Shell
 │   └── my/
 ├── Makefile
 ├── mysh
-├── segfault.c
+├── segfault.c -> programme à compiler qui donne le binaire "crash_seg" à utiliser dans le shell pour pouvoir tester le "Segmentation fault (core dumped)"
 ├── src
 │   ├── commands
 │   │   ├── cd_command.c
