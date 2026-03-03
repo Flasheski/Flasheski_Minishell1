@@ -1,0 +1,146 @@
+[0;32mTest 901 (Nothing) : OK[0m
+[0;32mTest 902 (Exec two command) : OK[0m
+[0;32mTest 903 (Testing with /usr/bin PATH) : OK[0m
+[0;32mTest 904 (Testing with /bin PATH) : OK[0m
+[0;32mTest 905 (run commands) : OK[0m
+[0;31mTest 906 (setenv and unsetenv) : KO - Check output in /tmp/test.14327/906/[0m
+[0;32mTest 907 (builtin cd) : OK[0m
+[0;32mTest 908 (many tab and space) : OK[0m
+[0;32mTest 909 (Launch DivZero program with core dump) : OK[0m
+[0;32mTest 910 (Command not found error) : OK[0m
+[0;32mTest 911 (Command not found error - multiple) : OK[0m
+[0;32mTest 912 (Absolute path execution) : OK[0m
+[0;32mTest 913 (Absolute path - command not found) : OK[0m
+[0;32mTest 914 (cd with no arguments) : OK[0m
+[0;32mTest 915 (cd into valid directory) : OK[0m
+[0;31mTest 916 (cd into invalid directory) : KO - Check output in /tmp/test.14327/916/[0m
+[0;32mTest 917 (cd back and forth) : OK[0m
+[0;31mTest 918 (env builtin - no argument) : KO - Check output in /tmp/test.14327/918/[0m
+[0;31mTest 919 (setenv - add new variable) : KO - Check output in /tmp/test.14327/919/[0m
+[0;31mTest 920 (setenv - overwrite existing variable) : KO - Check output in /tmp/test.14327/920/[0m
+[0;31mTest 921 (setenv - variable with no value) : KO - Check output in /tmp/test.14327/921/[0m
+[0;31mTest 922 (unsetenv - remove existing variable) : KO - Check output in /tmp/test.14327/922/[0m
+[0;32mTest 923 (unsetenv - remove non-existing variable) : OK[0m
+[0;31mTest 924 (setenv then unsetenv) : KO - Check output in /tmp/test.14327/924/[0m
+[0;32mTest 925 (exit builtin) : OK[0m
+[0;32mTest 926 (exit status - successful command) : OK[0m
+[0;32mTest 927 (exit status - failed command) : OK[0m
+[0;32mTest 928 (Empty command line) : OK[0m
+[0;31mTest 929 (Command with many arguments) : KO - Check output in /tmp/test.14327/929/[0m
+[0;32mTest 930 (Command with tabs and spaces mixed) : OK[0m
+[0;32mTest 931 (Only spaces input) : OK[0m
+[0;32mTest 932 (PATH variable modified via setenv) : OK[0m
+[0;32mTest 933 (Empty PATH) : OK[0m
+[0;32mTest 934 (Relative path execution from current dir) : OK[0m
+[0;31mTest 935 (Multiple setenv calls) : KO - Check output in /tmp/test.14327/935/[0m
+[0;31mTest 936 (unsetenv PATH and try command) : KO - Check output in /tmp/test.14327/936/[0m
+[0;31mTest 937 (cd too many arguments) : KO - Check output in /tmp/test.14327/937/[0m
+[0;31mTest 938 (env with argument - should fail or ignore) : KO - Check output in /tmp/test.14327/938/[0m
+[0;32mTest 939 (Commands after cd) : OK[0m
+[0;31mTest 940 (Long sequence of commands) : KO - Check output in /tmp/test.14327/940/[0m
+[0;32mTest 941 (cat a file) : OK[0m
+[0;32mTest 942 (Command with special characters in args) : OK[0m
+[0;31mTest 943 (setenv with special characters in value) : KO - Check output in /tmp/test.14327/943/[0m
+[0;32mTest 944 (cd to home via HOME variable) : OK[0m
+[0;32mTest 945 (Binary in /usr/bin) : OK[0m
+[0;31mTest 946 (Multiple unsetenv calls) : KO - Check output in /tmp/test.14327/946/[0m
+[0;32mTest 947 (cd with dot) : OK[0m
+[0;31mTest 948 (Non-executable file) : KO - Check output in /tmp/test.14327/948/[0m
+[0;32mTest 949 (Executing a directory) : OK[0m
+[0;32mTest 950 (exit with no prior commands) : OK[0m
+[0;31mTest 951 (setenv - invalid variable name (starts with digit)) : KO - Check output in /tmp/test.14327/951/[0m
+[0;31mTest 952 (setenv - invalid variable name (contains =)) : KO - Check output in /tmp/test.14327/952/[0m
+[0;31mTest 953 (setenv - invalid variable name (contains space)) : KO - Check output in /tmp/test.14327/953/[0m
+[0;31mTest 954 (setenv - invalid variable name (special chars)) : KO - Check output in /tmp/test.14327/954/[0m
+[0;31mTest 955 (setenv - valid name with underscore) : KO - Check output in /tmp/test.14327/955/[0m
+[0;31mTest 956 (setenv - lowercase vs uppercase variables) : KO - Check output in /tmp/test.14327/956/[0m
+[0;32mTest 957 (unsetenv - invalid variable name) : OK[0m
+[0;31mTest 958 (unsetenv - valid variable after invalid ones) : KO - Check output in /tmp/test.14327/958/[0m
+[0;31mTest 959 (setenv - very long variable name) : KO - Check output in /tmp/test.14327/959/[0m
+[0;31mTest 960 (setenv - name with mixed underscore and numbers) : KO - Check output in /tmp/test.14327/960/[0m
+[0;31mTest 961 (Parentheses parsing) : KO - Check output in /tmp/test.14327/961/[0m
+[0;31mTest 962 (Simple double quotes) : KO - Check output in /tmp/test.14327/962/[0m
+[0;31mTest 963 (Simple single quotes) : KO - Check output in /tmp/test.14327/963/[0m
+[0;32mTest 964 (Mixed quotes in arguments) : OK[0m
+[0;31mTest 965 (Nested spaces within quotes) : KO - Check output in /tmp/test.14327/965/[0m
+[0;31mTest 966 (setenv with quoted values) : KO - Check output in /tmp/test.14327/966/[0m
+[0;31mTest 967 (Empty quotes as arguments) : KO - Check output in /tmp/test.14327/967/[0m
+[0;31mTest 968 (Unclosed double quotes) : KO - Check output in /tmp/test.14327/968/[0m
+[0;31mTest 969 (Unclosed single quotes) : KO - Check output in /tmp/test.14327/969/[0m
+[0;31mTest 970 (Escaped spaces (if supported)) : KO - Check output in /tmp/test.14327/970/[0m
+[0;31mTest 971 (Backslashes inside quotes) : KO - Check output in /tmp/test.14327/971/[0m
+[0;31mTest 972 (Concatenated quoted strings) : KO - Check output in /tmp/test.14327/972/[0m
+[0;31mTest 973 (Complex combination of quotes and tabs) : KO - Check output in /tmp/test.14327/973/[0m
+[0;32mTest 901 (Nothing) : OK[0m
+[0;32mTest 902 (Exec two command) : OK[0m
+[0;32mTest 903 (Testing with /usr/bin PATH) : OK[0m
+[0;32mTest 904 (Testing with /bin PATH) : OK[0m
+[0;32mTest 905 (run commands) : OK[0m
+[0;31mTest 906 (setenv and unsetenv) : KO - Check output in /tmp/test.128332/906/[0m
+[0;32mTest 907 (builtin cd) : OK[0m
+[0;32mTest 908 (many tab and space) : OK[0m
+[0;32mTest 909 (Launch DivZero program with core dump) : OK[0m
+[0;32mTest 910 (Command not found error) : OK[0m
+[0;32mTest 911 (Command not found error - multiple) : OK[0m
+[0;32mTest 912 (Absolute path execution) : OK[0m
+[0;32mTest 913 (Absolute path - command not found) : OK[0m
+[0;32mTest 914 (cd with no arguments) : OK[0m
+[0;32mTest 915 (cd into valid directory) : OK[0m
+[0;31mTest 916 (cd into invalid directory) : KO - Check output in /tmp/test.128332/916/[0m
+[0;32mTest 917 (cd back and forth) : OK[0m
+[0;31mTest 918 (env builtin - no argument) : KO - Check output in /tmp/test.128332/918/[0m
+[0;31mTest 919 (setenv - add new variable) : KO - Check output in /tmp/test.128332/919/[0m
+[0;31mTest 920 (setenv - overwrite existing variable) : KO - Check output in /tmp/test.128332/920/[0m
+[0;31mTest 921 (setenv - variable with no value) : KO - Check output in /tmp/test.128332/921/[0m
+[0;31mTest 922 (unsetenv - remove existing variable) : KO - Check output in /tmp/test.128332/922/[0m
+[0;32mTest 923 (unsetenv - remove non-existing variable) : OK[0m
+[0;31mTest 924 (setenv then unsetenv) : KO - Check output in /tmp/test.128332/924/[0m
+[0;32mTest 925 (exit builtin) : OK[0m
+[0;32mTest 926 (exit status - successful command) : OK[0m
+[0;32mTest 927 (exit status - failed command) : OK[0m
+[0;32mTest 928 (Empty command line) : OK[0m
+[0;31mTest 929 (Command with many arguments) : KO - Check output in /tmp/test.128332/929/[0m
+[0;32mTest 930 (Command with tabs and spaces mixed) : OK[0m
+[0;32mTest 931 (Only spaces input) : OK[0m
+[0;32mTest 932 (PATH variable modified via setenv) : OK[0m
+[0;32mTest 933 (Empty PATH) : OK[0m
+[0;32mTest 934 (Relative path execution from current dir) : OK[0m
+[0;31mTest 935 (Multiple setenv calls) : KO - Check output in /tmp/test.128332/935/[0m
+[0;31mTest 936 (unsetenv PATH and try command) : KO - Check output in /tmp/test.128332/936/[0m
+[0;31mTest 937 (cd too many arguments) : KO - Check output in /tmp/test.128332/937/[0m
+[0;31mTest 938 (env with argument - should fail or ignore) : KO - Check output in /tmp/test.128332/938/[0m
+[0;32mTest 939 (Commands after cd) : OK[0m
+[0;31mTest 940 (Long sequence of commands) : KO - Check output in /tmp/test.128332/940/[0m
+[0;32mTest 941 (cat a file) : OK[0m
+[0;32mTest 942 (Command with special characters in args) : OK[0m
+[0;31mTest 943 (setenv with special characters in value) : KO - Check output in /tmp/test.128332/943/[0m
+[0;32mTest 944 (cd to home via HOME variable) : OK[0m
+[0;32mTest 945 (Binary in /usr/bin) : OK[0m
+[0;31mTest 946 (Multiple unsetenv calls) : KO - Check output in /tmp/test.128332/946/[0m
+[0;32mTest 947 (cd with dot) : OK[0m
+[0;31mTest 948 (Non-executable file) : KO - Check output in /tmp/test.128332/948/[0m
+[0;32mTest 949 (Executing a directory) : OK[0m
+[0;32mTest 950 (exit with no prior commands) : OK[0m
+[0;31mTest 951 (setenv - invalid variable name (starts with digit)) : KO - Check output in /tmp/test.128332/951/[0m
+[0;31mTest 952 (setenv - invalid variable name (contains =)) : KO - Check output in /tmp/test.128332/952/[0m
+[0;31mTest 953 (setenv - invalid variable name (contains space)) : KO - Check output in /tmp/test.128332/953/[0m
+[0;31mTest 954 (setenv - invalid variable name (special chars)) : KO - Check output in /tmp/test.128332/954/[0m
+[0;31mTest 955 (setenv - valid name with underscore) : KO - Check output in /tmp/test.128332/955/[0m
+[0;31mTest 956 (setenv - lowercase vs uppercase variables) : KO - Check output in /tmp/test.128332/956/[0m
+[0;32mTest 957 (unsetenv - invalid variable name) : OK[0m
+[0;31mTest 958 (unsetenv - valid variable after invalid ones) : KO - Check output in /tmp/test.128332/958/[0m
+[0;31mTest 959 (setenv - very long variable name) : KO - Check output in /tmp/test.128332/959/[0m
+[0;31mTest 960 (setenv - name with mixed underscore and numbers) : KO - Check output in /tmp/test.128332/960/[0m
+[0;31mTest 961 (Parentheses parsing) : KO - Check output in /tmp/test.128332/961/[0m
+[0;31mTest 962 (Simple double quotes) : KO - Check output in /tmp/test.128332/962/[0m
+[0;31mTest 963 (Simple single quotes) : KO - Check output in /tmp/test.128332/963/[0m
+[0;32mTest 964 (Mixed quotes in arguments) : OK[0m
+[0;31mTest 965 (Nested spaces within quotes) : KO - Check output in /tmp/test.128332/965/[0m
+[0;31mTest 966 (setenv with quoted values) : KO - Check output in /tmp/test.128332/966/[0m
+[0;31mTest 967 (Empty quotes as arguments) : KO - Check output in /tmp/test.128332/967/[0m
+[0;31mTest 968 (Unclosed double quotes) : KO - Check output in /tmp/test.128332/968/[0m
+[0;31mTest 969 (Unclosed single quotes) : KO - Check output in /tmp/test.128332/969/[0m
+[0;31mTest 970 (Escaped spaces (if supported)) : KO - Check output in /tmp/test.128332/970/[0m
+[0;31mTest 971 (Backslashes inside quotes) : KO - Check output in /tmp/test.128332/971/[0m
+[0;31mTest 972 (Concatenated quoted strings) : KO - Check output in /tmp/test.128332/972/[0m
+[0;31mTest 973 (Complex combination of quotes and tabs) : KO - Check output in /tmp/test.128332/973/[0m

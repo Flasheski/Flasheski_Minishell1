@@ -1,0 +1,678 @@
+[901]
+NAME="Nothing"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo ''
+[901-END]
+
+[902]
+NAME="Exec two command"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'ls /etc'
+  echo 'cat /etc/resolv.conf'
+[902-END]
+
+[903]
+NAME="Testing with /usr/bin PATH"
+SETUP="export TERM=xterm ; PATH='/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'pwd'
+[903-END]
+
+[904]
+NAME="Testing with /bin PATH"
+SETUP="export TERM=xterm ; PATH='/bin'"
+CLEAN=""
+TESTS=
+  echo 'pwd'
+[904-END]
+
+[905]
+NAME="run commands"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'cat /etc/resolv.conf'
+  sleep 0.5
+  echo 'ls -l /etc'
+  sleep 0.5
+  echo 'pwd'
+[905-END]
+
+[906]
+NAME="setenv and unsetenv"
+SETUP="/usr/bin/env > .lstenv ; while read varenv ; do unset $varenv ; done < <(/bin/cat .lstenv | /usr/bin/cut -f1 -d=) ; export PATH=/bin:/usr/bin ; export _=ls ; export LS_COLORS=RID ; export MYBG=4 ; export LVL=4 ; export NOTE=2"
+CLEAN="while read varenv ; do export "$varenv" 2>/dev/null ; done  < <(/bin/cat .lstenv) ; /bin/rm -f .lstenv"
+TESTS=
+  echo 'unsetenv HOSTTYPE'
+  echo 'unsetenv VENDOR'
+  echo 'unsetenv OSTYPE'
+  echo 'unsetenv MACHTYPE'
+  echo 'unsetenv SHLVL'
+  echo 'unsetenv PWD'
+  echo 'unsetenv LOGNAME'
+  echo 'unsetenv USER'
+  echo 'unsetenv GROUP'
+  echo 'unsetenv HOST'
+  echo 'unsetenv REMOTEHOST'
+  echo 'unsetenv _'
+  echo 'unsetenv LS_COLORS'
+  echo 'unsetenv NOTE'
+  echo 'setenv titi'
+  echo 'setenv tata coucou'
+  echo 'env'
+  echo '/usr/bin/env'
+  echo 'setenv var1 val1'
+  echo 'setenv var2 val2'
+[906-END]
+
+[907]
+NAME="builtin cd"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'cd ..'
+  echo 'ls -l'
+  echo 'cd /usr'
+  echo 'ls -l'
+[907-END]
+
+[908]
+NAME="many tab and space"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo -e "\t\t    ls\t     \t-l    \t\t  \t -a /usr   \t\t"
+[908-END]
+
+[909]
+NAME="Launch DivZero program with core dump"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo "./my_divzero"
+[909-END]
+
+[910]
+NAME="Command not found error"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'notacommand'
+[910-END]
+
+[911]
+NAME="Command not found error - multiple"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'fakecommand'
+  echo 'ls /tmp'
+  echo 'anotherfake'
+[911-END]
+
+[912]
+NAME="Absolute path execution"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo '/bin/ls /tmp'
+[912-END]
+
+[913]
+NAME="Absolute path - command not found"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo '/bin/notexistingbinary'
+[913-END]
+
+[914]
+NAME="cd with no arguments"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'cd'
+  echo 'pwd'
+[914-END]
+
+[915]
+NAME="cd into valid directory"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'cd /tmp'
+  echo 'pwd'
+[915-END]
+
+[916]
+NAME="cd into invalid directory"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'cd /notexistingdir'
+  echo 'pwd'
+[916-END]
+
+[917]
+NAME="cd back and forth"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'cd /tmp'
+  echo 'pwd'
+  echo 'cd ..'
+  echo 'pwd'
+  echo 'cd /usr/bin'
+  echo 'pwd'
+[917-END]
+
+[918]
+NAME="env builtin - no argument"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; export MYVAR=hello"
+CLEAN=""
+TESTS=
+  echo 'env'
+[918-END]
+
+[919]
+NAME="setenv - add new variable"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv NEWVAR myvalue'
+  echo 'env'
+[919-END]
+
+[920]
+NAME="setenv - overwrite existing variable"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; export MYVAR=original"
+CLEAN=""
+TESTS=
+  echo 'setenv MYVAR newvalue'
+  echo 'env'
+[920-END]
+
+[921]
+NAME="setenv - variable with no value"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv EMPTYVAR'
+  echo 'env'
+[921-END]
+
+[922]
+NAME="unsetenv - remove existing variable"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; export TOREMOVE=yes"
+CLEAN=""
+TESTS=
+  echo 'unsetenv TOREMOVE'
+  echo 'env'
+[922-END]
+
+[923]
+NAME="unsetenv - remove non-existing variable"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'unsetenv DOESNOTEXIST'
+[923-END]
+
+[924]
+NAME="setenv then unsetenv"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv TEMPVAR tempvalue'
+  echo 'env'
+  echo 'unsetenv TEMPVAR'
+  echo 'env'
+[924-END]
+
+[925]
+NAME="exit builtin"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'exit'
+[925-END]
+
+[926]
+NAME="exit status - successful command"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'ls /tmp'
+[926-END]
+
+[927]
+NAME="exit status - failed command"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'ls /notexistingpath'
+[927-END]
+
+[928]
+NAME="Empty command line"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo ''
+  echo ''
+  echo 'ls /tmp'
+[928-END]
+
+[929]
+NAME="Command with many arguments"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'ls -l -a -h /usr /tmp /var'
+[929-END]
+
+[930]
+NAME="Command with tabs and spaces mixed"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo -e "  ls   -l   /tmp  "
+[930-END]
+
+[931]
+NAME="Only spaces input"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo '   '
+[931-END]
+
+[932]
+NAME="PATH variable modified via setenv"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv PATH /bin'
+  echo 'ls /tmp'
+[932-END]
+
+[933]
+NAME="Empty PATH"
+SETUP="export TERM=xterm ; PATH=''"
+CLEAN=""
+TESTS=
+  echo 'ls'
+[933-END]
+
+[934]
+NAME="Relative path execution from current dir"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; cp /bin/ls /tmp/my_ls_test"
+CLEAN="/bin/rm -f /tmp/my_ls_test"
+TESTS=
+  echo 'cd /tmp'
+  echo './my_ls_test /tmp'
+[934-END]
+
+[935]
+NAME="Multiple setenv calls"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv VAR1 value1'
+  echo 'setenv VAR2 value2'
+  echo 'setenv VAR3 value3'
+  echo 'env'
+[935-END]
+
+[936]
+NAME="unsetenv PATH and try command"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'unsetenv PATH'
+  echo 'ls'
+[936-END]
+
+[937]
+NAME="cd too many arguments"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'cd /tmp /usr'
+[937-END]
+
+[938]
+NAME="env with argument - should fail or ignore"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'env somearg'
+[938-END]
+
+[939]
+NAME="Commands after cd"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; mkdir -p /tmp/mysh_test_dir"
+CLEAN="/bin/rm -rf /tmp/mysh_test_dir"
+TESTS=
+  echo 'cd /tmp/mysh_test_dir'
+  echo 'pwd'
+  echo 'ls -a'
+[939-END]
+
+[940]
+NAME="Long sequence of commands"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'ls /tmp'
+  echo 'pwd'
+  echo 'ls /usr'
+  echo 'pwd'
+  echo 'ls /bin'
+[940-END]
+
+[941]
+NAME="cat a file"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; echo 'hello world' > /tmp/mysh_testfile"
+CLEAN="/bin/rm -f /tmp/mysh_testfile"
+TESTS=
+  echo 'cat /tmp/mysh_testfile'
+[941-END]
+
+[942]
+NAME="Command with special characters in args"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'echo hello world'
+[942-END]
+
+[943]
+NAME="setenv with special characters in value"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv MYVAR hello_world'
+  echo 'env'
+[943-END]
+
+[944]
+NAME="cd to home via HOME variable"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; export HOME=/tmp"
+CLEAN=""
+TESTS=
+  echo 'cd /usr'
+  echo 'pwd'
+  echo 'cd'
+  echo 'pwd'
+[944-END]
+
+[945]
+NAME="Binary in /usr/bin"
+SETUP="export TERM=xterm ; PATH='/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'wc -l /etc/passwd'
+[945-END]
+
+[946]
+NAME="Multiple unsetenv calls"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; export A=1 ; export B=2 ; export C=3"
+CLEAN=""
+TESTS=
+  echo 'unsetenv A'
+  echo 'unsetenv B'
+  echo 'unsetenv C'
+  echo 'env'
+[946-END]
+
+[947]
+NAME="cd with dot"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'cd /tmp'
+  echo 'cd .'
+  echo 'pwd'
+[947-END]
+
+[948]
+NAME="Non-executable file"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; touch /tmp/notexec_mysh ; chmod 644 /tmp/notexec_mysh"
+CLEAN="/bin/rm -f /tmp/notexec_mysh"
+TESTS=
+  echo '/tmp/notexec_mysh'
+[948-END]
+
+[949]
+NAME="Executing a directory"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo '/tmp'
+[949-END]
+
+[950]
+NAME="exit with no prior commands"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'exit'
+[950-END]
+
+[951]
+NAME="setenv - invalid variable name (starts with digit)"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv 1VAR value'
+  echo 'env'
+[951-END]
+
+[952]
+NAME="setenv - invalid variable name (contains =)"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv VAR=NAME value'
+  echo 'env'
+[952-END]
+
+[953]
+NAME="setenv - invalid variable name (contains space)"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv MY VAR value'
+  echo 'env'
+[953-END]
+
+[954]
+NAME="setenv - invalid variable name (special chars)"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv VAR$BAD value'
+  echo 'env'
+[954-END]
+
+[955]
+NAME="setenv - valid name with underscore"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv MY_VAR value'
+  echo 'env'
+[955-END]
+
+[956]
+NAME="setenv - lowercase vs uppercase variables"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv myvar lower'
+  echo 'setenv MYVAR upper'
+  echo 'env'
+[956-END]
+
+[957]
+NAME="unsetenv - invalid variable name"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'unsetenv VAR=bad'
+[957-END]
+
+[958]
+NAME="unsetenv - valid variable after invalid ones"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; export TESTVAR=abc"
+CLEAN=""
+TESTS=
+  echo 'unsetenv ?VAR'
+  echo 'unsetenv TESTVAR'
+  echo 'env'
+[958-END]
+
+[959]
+NAME="setenv - very long variable name"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv SUPERLONGVARIABLE123456789012345678901234567890 value'
+  echo 'env'
+[959-END]
+
+[960]
+NAME="setenv - name with mixed underscore and numbers"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo 'setenv VAR_123_ABC hello'
+  echo 'env'
+[960-END]
+
+[961]
+NAME="Parentheses parsing"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+  echo '('
+  echo ')'
+  echo '()'
+  echo '(ls)'
+[961-END]
+
+[962]
+NAME="Simple double quotes"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo 'echo "hello world"'
+echo 'ls -d " /tmp "'
+[962-END]
+
+[963]
+NAME="Simple single quotes"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo "echo 'hello world'"
+echo "ls -d ' /etc '"
+[963-END]
+
+[964]
+NAME="Mixed quotes in arguments"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo 'echo "single '"' quote inside"'
+echo 'echo " ' " ' " ' " '
+[964-END]
+
+[965]
+NAME="Nested spaces within quotes"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin' ; mkdir -p '/tmp/space dir'"
+CLEAN="rm -rf '/tmp/space dir'"
+TESTS=
+echo 'ls "/tmp/space dir"'
+echo 'cd "/tmp/space dir"'
+echo 'pwd'
+[965-END]
+
+[966]
+NAME="setenv with quoted values"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo 'setenv VAR "value with spaces"'
+echo 'env'
+echo 'setenv EMPTY ""'
+echo 'env'
+[966-END]
+
+[967]
+NAME="Empty quotes as arguments"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo 'echo ""'
+echo 'ls ""'
+echo 'setenv TEST ""'
+[967-END]
+
+[968]
+NAME="Unclosed double quotes"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo 'echo "this quote never ends'
+[968-END]
+
+[969]
+NAME="Unclosed single quotes"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo "echo 'this quote never ends"
+[969-END]
+
+[970]
+NAME="Escaped spaces (if supported)"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo 'echo hello\ world'
+echo 'ls /usr/bin/[['
+[970-END]
+
+[971]
+NAME="Backslashes inside quotes"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo 'echo "backslash \ test"'
+echo "echo 'backslash \ test'"
+[971-END]
+
+[972]
+NAME="Concatenated quoted strings"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo 'echo "hello""world"'
+echo 'echo "hello"world'
+echo 'echo hello"world"'
+[972-END]
+
+[973]
+NAME="Complex combination of quotes and tabs"
+SETUP="export TERM=xterm ; PATH='/bin:/usr/bin'"
+CLEAN=""
+TESTS=
+echo -e "echo\t"tabbed\tquote"\t'another\tone'"
+[973-END]
