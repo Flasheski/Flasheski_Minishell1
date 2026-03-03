@@ -79,11 +79,11 @@ echo "ls -l" | ./mysh
 
 * Fonctions autorisées :
 
-malloc, free, exit, opendir, readdir, closedir, getcwd, chdir, fork, stat, lstat, fstat, open, close, getline, strtok, strtok_r, read, write, execve, access, isatty, wait, waitpid, wait3, wait4, signal, kill, getpid, strerror, perror, strsignal.
+- malloc, free, exit, opendir, readdir, closedir, getcwd, chdir, fork, stat, lstat, fstat, open, close, getline, strtok, strtok_r, read, write, execve, access, isatty, wait, waitpid, wait3, wait4, signal, kill, getpid, strerror, perror, strsignal.
 
-📁 FICHIERS && STRUCTURE DU PROJET :
+## 📁 FICHIERS && STRUCTURE DU PROJET :
 
-Une organisation modulaire est recommandée pour gérer le cycle de vie du Shell et une meilleure compréhension.
+* Une organisation modulaire est recommandée pour gérer le cycle de vie du Shell et une meilleure compréhension.
 
 ```bash
 ├── abort.c -> programme à compiler qui donne le binaire "crash_abort" pour tester le crash "Abort (core dumped)
